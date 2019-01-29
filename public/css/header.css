@@ -51,10 +51,12 @@ body{
     justify-content: space-around;
 }
 
-#login_but{background: #70c1b3;}
-#register_but{background: #f4a365;}
+#login_but{background-color: #70c1b3;}
+#register_but{background-color: #f4a365;}
 #create_card{
     padding: 0 5em;
-    background: #f25f5c;
+    background-color: #f25f5c;
 }
-
+#logout_but{
+    background-color: #3e3f3e;
+}

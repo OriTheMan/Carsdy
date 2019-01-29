@@ -25,7 +25,7 @@
 
                 <button id="log_but" type="submit">Log in</button>
             </form>
-            
+
             <p id="call_to_reg">Don't have an account? Register <a href="/register">here</a></p>
 
         </div>
