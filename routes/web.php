@@ -20,3 +20,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/login', 'Auth\LoginController@showForm'); 
+
+Route::post('/login', 'Auth\LoginController@processForm'); 
+
+Route::post('/create_card')->middleware('auth.basic');

@@ -2,8 +2,10 @@
 
 namespace Carsdy\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use Carsdy\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -19,6 +21,15 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+    /**
+     * Use username for authentication
+     * 
+     */
+    public function username()
+    {
+        return 'username';
+    }
 
     /**
      * Where to redirect users after login.
@@ -39,5 +50,33 @@ class LoginController extends Controller
 
     public function showForm(){
         return View('login');
+    }
+
+    public function processForm(Request $request){
+
+        $rules = [
+            'username' => 'required|min:6',
+            'password' => 'required|alphaNum|min:3'
+        ];
+
+        $messages = [
+            'required' => "Can't log in without your :attribute",
+            'min' => "Your :attribute must be at least :min characters long"
+        ];
+
+        // Run validation
+        $validation = $request->validate($rules);
+
+        // Authenticate
+        $credentials = $request->only('username', 'password');
+
+        if (Auth::attempt($credentials)) {
+
+            // Authentication passed...
+            return redirect()->intended('home');
+
+        }else{
+            return redirect()->intended('login');
+        }
     }
 }
