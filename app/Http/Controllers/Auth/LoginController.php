@@ -45,7 +45,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logoutUser');
     }
 
     public function showForm(){
@@ -56,7 +56,7 @@ class LoginController extends Controller
 
         $rules = [
             'username' => 'required|min:6',
-            'password' => 'required|alphaNum|min:3'
+            'password' => 'required|alphaNum|min:6'
         ];
 
         $messages = [
@@ -78,5 +78,10 @@ class LoginController extends Controller
         }else{
             return redirect()->intended('login');
         }
+    }
+
+    public function logoutUser(){
+        Auth::logout();
+        return redirect('/home');
     }
 }

@@ -19,8 +19,10 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/login', 'Auth\LoginController@showForm'); 
+Route::get('/login', 'Auth\LoginController@showForm')->name('login'); 
 
 Route::post('/login', 'Auth\LoginController@processForm'); 
 
-Route::post('/create_card')->middleware('auth.basic');
+Route::post('/logout', 'Auth\LoginController@logoutUser')->name('logout'); 
+
+Route::get('/create_card')->middleware('auth')->name('create_card');
