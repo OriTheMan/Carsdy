@@ -40,6 +40,15 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showForm(){
+        return View('register');
+    }
+
+    public function processForm(Request $request){
+
+        
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -64,7 +73,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'name' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

@@ -9,10 +9,12 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href={{ URL::asset('css/header.css') }}>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 
         @if(Request::path() === 'login')
             <link rel="stylesheet" type="text/css" href={{ URL::asset('css/login.css') }}>
-            <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+        @elseif(Request::path()==='register')
+            <link rel="stylesheet" type="text/css" href={{ URL::asset('css/register.css') }}>
         @endif
     </head>
 

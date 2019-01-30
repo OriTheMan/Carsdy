@@ -55,8 +55,8 @@ class LoginController extends Controller
     public function processForm(Request $request){
 
         $rules = [
-            'username' => 'required|min:6',
-            'password' => 'required|alphaNum|min:6'
+            'username' => 'required|min:6|max:255',
+            'password' => 'required|alphaNum|min:6|max:255'
         ];
 
         $messages = [

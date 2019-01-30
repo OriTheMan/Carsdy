@@ -20,9 +20,11 @@ Route::get('/home', function () {
 });
 
 Route::get('/login', 'Auth\LoginController@showForm')->name('login'); 
-
 Route::post('/login', 'Auth\LoginController@processForm'); 
 
 Route::post('/logout', 'Auth\LoginController@logoutUser')->name('logout'); 
+
+Route::get('/register', 'Auth\RegisterController@showForm')->name('register');
+Route::post('/register', 'Auth\RegisterController@processForm');
 
 Route::get('/create_card')->middleware('auth')->name('create_card');
