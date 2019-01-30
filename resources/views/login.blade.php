@@ -15,12 +15,17 @@
             <form action="/login" method="POST">
                 <div class="field_cont">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" />
+                    <input class="char_field" type="text" id="username" name="username" />
                 </div>
 
                 <div class="field_cont">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" />
+                    <input class="char_field" type="password" id="password" name="password" />
+                </div>
+
+                <div class="field_cont">
+                    <label for="remember_me">Remember me</label>
+                    <input type="checkbox" name="remember_me"/>
                 </div>
 
                 <button id="log_but" type="submit">Log in</button>

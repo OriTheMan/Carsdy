@@ -67,12 +67,10 @@ label{
     font-family: 'Lato', sans-serif;
     display: inline-block;
     text-align: right;
-    width: 5em;
+    width: 7em;
 }
 
-.field_cont{
-    margin-bottom: 1em;
-}
+.field_cont{margin-bottom: 1em;}
 
 #log_but{
     float: right;
@@ -93,9 +91,7 @@ label{
 
     transition: color,background-color .2s linear;
 }
-
 #log_but:hover{
-
     color: white;
     background-color: #50514f;
     cursor: pointer;
@@ -106,3 +102,10 @@ label{
 
     margin-top: 5em;
 }
+
+.char_field{
+    height: 2em;
+    border-radius: 2%;
+    border: 2px solid #c2c2c2;
+}
+.char_field:focus{border:2px solid #49a8ce;}
