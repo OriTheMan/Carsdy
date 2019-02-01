@@ -4,7 +4,7 @@
     </a>
 
 
-    <a class="header_segment" id="create_card" href="/create_card">Create card</a>
+    <a class="header_segment" id="create_card" href="/create_set">Create card</a>
 
     @auth
         <a href="{{ route('logout') }}" class="header_segment" id="logout_but" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
