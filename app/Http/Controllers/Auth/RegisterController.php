@@ -7,6 +7,8 @@ use Carsdy\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class RegisterController extends Controller
 {
@@ -45,8 +47,15 @@ class RegisterController extends Controller
     }
 
     public function processForm(Request $request){
+        $data = $request->all();
+        $validator = $this->validator($data);
 
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
         
+        $this->create($data);
+        return redirect()->route("home");   
     }
 
     /**
@@ -57,11 +66,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:50'],
+        $rules =  [
+            'username' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:254', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
-        ]);
+            'password' => ['required', 'string', 'min:6', 'confirmed', 'alphaNum'],
+        ];
+
+        $messages = [
+            'username.required' => "You must specify a username.",
+            'email.required' => "You must specify an email.",
+            'password.required' => "You must specify a password.",
+            'min' => ":Attribute can't be less than :min characters.",
+            'max' => ":Attribute can't be more than :max characters.",
+        ];
+
+        return Validator::make($data, $rules, $messages);
     }
 
     /**
@@ -73,7 +92,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['username'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

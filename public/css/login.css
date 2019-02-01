@@ -29,6 +29,10 @@
     font-size: 3em;
 }
 
+#login_failed{
+    font-family: 'Lato', sans-serif;
+}
+
 #color_box{
     display: flex;
     flex-flow: column;
@@ -80,13 +84,11 @@ label{
     background: none;
     border: none;
     outline: none;
-    padding: 0;
+    padding: .5em;
 
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-
-    padding: .5em;
 
     font-size: 1.3em;
 
@@ -113,16 +115,6 @@ label{
 }
 .char_field:focus{border: 2px solid #49a8ce;}
 
-.error{
-    color: #f26419;
-
-    font-family: 'Lato', sans-serif;
-    font-size: 1em;
-    font-weight: 600;
-
-    margin-left: 6em;
-}
-
 .error_icon{
-    color:inherit;
+    color: #f26419;
 }

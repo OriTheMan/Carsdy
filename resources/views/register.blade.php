@@ -1,7 +1,5 @@
 @extends('layout')
 @section('content')
-<form action="/login" method="POST">
-    @csrf
 
     <div id="container">
         <div id="color_box">
@@ -11,27 +9,37 @@
         </div>
 
         <div id="form_cont">
-        <h1 id="register">Register</h1>
+            <h1 id="register">Register</h1>
             <form action="/register" method="POST">
+                @csrf
 
                 <div class="field_cont">
-                    <label for="cnf_email">E-mail</label>
-                    <input class="char_field" type="password" id="password" name="password" />
+                    <label for="email">E-mail</label>
+                    <input class="char_field" type="text" name="email" />
+                    @if ($errors->has('email'))
+                        <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('email') }}</div>
+                    @endif
                 </div>
 
                 <div class="field_cont">
                     <label for="username">Username</label>
                     <input class="char_field" type="text" id="username" name="username" />
+                    @if ($errors->has('username'))
+                        <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('username') }}</div>
+                    @endif
                 </div>
 
                 <div class="field_cont">
                     <label for="password">Password</label>
                     <input class="char_field" type="password" id="password" name="password" />
+                    @if ($errors->has('password'))
+                        <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('password') }}</div>
+                    @endif
                 </div>
 
                 <div class="field_cont">
                     <label for="cnf_password">Confirm Password</label>
-                    <input class="char_field" type="password" id="password" name="password" />
+                    <input class="char_field" type="password" name="password_confirmation" />
                 </div>
 
 
@@ -42,7 +50,4 @@
 
         </div>
     </div>
-
-</form>
-
 @stop
