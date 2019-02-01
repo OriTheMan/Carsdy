@@ -55,17 +55,21 @@ class LoginController extends Controller
     public function processForm(Request $request){
 
         $rules = [
-            'username' => 'required|min:6|max:255',
-            'password' => 'required|alphaNum|min:6|max:255'
+            'username' => 'required|min:6|max:50',
+            'password' => 'required|alphaNum|min:6'
         ];
 
         $messages = [
             'required' => "Can't log in without your :attribute",
-            'min' => "Your :attribute must be at least :min characters long"
+            'min' => "",
+            'max' => "",
         ];
 
         // Run validation
-        $validation = $request->validate($rules);
+        $validation = $request->validate($rules, $messages);
+        if($validation->fails()) {
+            return Redirect::back()->withErrors($validation);
+        }
 
         // Authenticate
         $credentials = $request->only('username', 'password');

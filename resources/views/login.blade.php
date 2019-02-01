@@ -11,16 +11,22 @@
         </div>
 
         <div id="form_cont">
-        <h1 id="login">Log in</h1>
+            <h1 id="login">Log in</h1>
             <form action="/login" method="POST">
                 <div class="field_cont">
                     <label for="username">Username</label>
                     <input class="char_field" type="text" id="username" name="username" />
+                    @if ($errors->has('username'))
+                        <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('username') }}</div>
+                    @endif
                 </div>
 
                 <div class="field_cont">
                     <label for="password">Password</label>
                     <input class="char_field" type="password" id="password" name="password" />
+                    @if ($errors->has('password'))
+                        <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('password') }}</div>
+                    @endif
                 </div>
 
                 <div class="field_cont">
@@ -32,7 +38,6 @@
             </form>
 
             <p id="call_to_reg">Don't have an account? Register <a href="/register">here</a></p>
-
         </div>
     </div>
 
