@@ -1,0 +1,50 @@
+#container{margin: 5em;}
+
+#title_input{
+    background-color: transparent;
+
+    font-size: 1.5em;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+
+    border: none;
+    border-bottom: .1em dotted #323232;
+
+}
+
+table{
+    width: 50em;
+    margin: 5em auto;
+
+    font-family: 'Lato', sans-serif;
+}
+
+th{    
+    padding: 0;
+    height: 2em;
+
+    border-right: .1em  
+}
+
+.fa-plus-circle{color: green;}
+
+#add_row_but{
+    border: none;
+    background: rgb(233, 233, 233);
+
+    height: 3em;
+    padding: 0em 1em;
+
+    border-radius: 1em;
+
+    float: right;
+}
+#add_row_but:hover{cursor: pointer;}
+
+.rem_row_but{
+    border: none;
+    background-color: transparent;
+}
+.rem_row_but:hover{cursor: pointer;}
+
+.fa-times-circle{color: red;}

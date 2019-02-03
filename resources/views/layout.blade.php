@@ -16,7 +16,11 @@
             <link rel="stylesheet" type="text/css" href={{ URL::asset('css/login.css') }}>
         @elseif(Request::path()==='register')
             <link rel="stylesheet" type="text/css" href={{ URL::asset('css/register.css') }}>
+        @elseif(Request::path()==='create_set')
+            <link rel="stylesheet" type="text/css" href={{ URL::asset('css/create_set.css') }}>
+            <script type="text/javascript" src={{ URL::asset('js/create_set.js') }}></script>
         @endif
+        
     </head>
 
     <body>  
