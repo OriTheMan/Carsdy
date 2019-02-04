@@ -25,13 +25,25 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <button id="add_row_but" type="button" onclick="addRow();">
+                    <button class="interact_but" type="button" onclick="addRow();">
                         <i class="fas fa-plus-circle"></i> Add Row
                     </button>
                 </td>
             </tr>
         </table>
 
+        <div id="options_cont">
+            <label for="description" class="option_label">Short Description</label>
+            <textarea id="set_desc" name="description" rows="5"></textarea>  
+
+            <label for="access" class="option_label">Access</label>
+            <select id="access_dd" name="access">    
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+            </select>
+        </div>
+
+        <button type="submit" class="interact_but"><i class="fas fa-share"></i>  Create</button>
     </form>
 
 </div>

@@ -28,9 +28,9 @@ th{
 
 .fa-plus-circle{color: green;}
 
-#add_row_but{
+.interact_but{
     border: none;
-    background: rgb(233, 233, 233);
+    background: rgb(206, 206, 206);
 
     height: 3em;
     padding: 0em 1em;
@@ -39,7 +39,7 @@ th{
 
     float: right;
 }
-#add_row_but:hover{cursor: pointer;}
+.interact_but:hover{cursor: pointer;}
 
 .rem_row_but{
     border: none;
@@ -48,3 +48,37 @@ th{
 .rem_row_but:hover{cursor: pointer;}
 
 .fa-times-circle{color: red;}
+
+#options_cont{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    margin: 0 auto;
+}
+
+#set_desc{
+    border: .1em grey solid;
+    border-radius: .5em;
+    font-family: 'Lato', sans-serif;
+
+    width: 50em;
+    margin-bottom: 3em
+}
+
+.option_label{
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+select{width: 6em;}
+
+button[type="submit"]{
+
+
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 10em;
+}
+
+.fa-share{color: #70c1b3;}
