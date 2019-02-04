@@ -37,6 +37,7 @@
             "Carsdy\\": "app/"
         },
         "classmap": [
+            "database",
             "database/seeds",
             "database/factories"
         ]
