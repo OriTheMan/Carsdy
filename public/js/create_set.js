@@ -10,7 +10,7 @@ function addRow(){
     newRow.innerHTML = "<td><input type='text' name='cards[card" + idx + "][front]' maxlength='40'/></td> \
     <td><input type='text' name='cards[card" + idx + "][back]' maxlength='40'/></td> \
     <td><input type='text' name='cards[card" + idx + "][alt]' maxlength='20'/></td> \
-    <td><input type='text' name='cards[card" + idx + "][com]' maxlength='30'/></td> \
+    <td><input type='text' name='cards[card" + idx + "][comment]' maxlength='30'/></td> \
     <td> \
     <button class='rem_row_but' type='button' onclick='remRow(" + idx + ")'> \
         <i class='far fa-times-circle'></i></button></td>";

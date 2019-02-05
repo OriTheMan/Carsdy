@@ -28,3 +28,4 @@ Route::get('/register', 'Auth\RegisterController@showForm')->name('register');
 Route::post('/register', 'Auth\RegisterController@processForm');
 
 Route::get('/create_set', 'AppLogic\CardSetController@showForm')->middleware('auth')->name('create_set');
+Route::post('/create_set', 'AppLogic\CardSetController@processForm');

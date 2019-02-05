@@ -18,8 +18,8 @@ class CreateCardsTable extends Migration
             $table->integer('cset_id')->unsigned();
             $table->string('front', 40);
             $table->string('back', 40);
-            $table->string('alt', 20);
-            $table->string('comment', 30);
+            $table->string('alt', 20)->nullable();
+            $table->string('comment', 30)->nullable();
             $table->timestamps();
 
             $table->foreign('cset_id')->references('id')->on('card_sets');
