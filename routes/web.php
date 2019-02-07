@@ -19,13 +19,15 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/login', 'Auth\LoginController@showForm')->name('login'); 
+Route::view('/login', 'login')->name('login'); 
 Route::post('/login', 'Auth\LoginController@processForm'); 
 
 Route::post('/logout', 'Auth\LoginController@logoutUser')->name('logout'); 
 
-Route::get('/register', 'Auth\RegisterController@showForm')->name('register');
+Route::view('/register', 'register')->name('register');
 Route::post('/register', 'Auth\RegisterController@processForm');
 
-Route::get('/create_set', 'AppLogic\CardSetController@showForm')->middleware('auth')->name('create_set');
+Route::view('/create_set', 'create_set')->middleware('auth')->name('create_set');
 Route::post('/create_set', 'AppLogic\CardSetController@processForm');
+
+Route::view('/user/{id?}/card_sets', 'user_profile')->where(['id' => '[0-9]+']);

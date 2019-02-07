@@ -42,10 +42,6 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function showForm(){
-        return View('register');
-    }
-
     public function processForm(Request $request){
         $data = $request->all();
         $validator = $this->validator($data);

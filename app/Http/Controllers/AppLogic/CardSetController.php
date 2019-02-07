@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Auth;
 class CardSetController extends Controller
 {
 
-
-    public function showForm(){
-        return View('create_set');
-    }
-
     public function processForm(Request $request){
         $data = $request->only('title', 'description', 'access');
 
