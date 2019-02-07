@@ -45,16 +45,17 @@ body{
 
 .header_segment:hover{box-shadow: inset 0 0 14px 0px rgba(0, 0, 0, 0.5);}
 
-#reg_log{
+.right_segment{
     display: flex;
     flex-flow: row;
-    justify-content: space-around;
+    justify-content: space-around;   
 }
 
-#login_but{background-color: #70c1b3;}
+#login_but{background-color: #02b09d;}
 #register_but{background-color: #f4a365;}
 #create_card{
     padding: 0 5em;
     background-color: #f25f5c;
 }
 #logout_but{background-color: #3e3f3e;}
+#profile_but{background-color: #70c1b3;}
