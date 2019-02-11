@@ -1,5 +1,4 @@
-# carsdy
-
+ <img src="https://raw.githubusercontent.com/TsimpDim/Carsdy/master/public/img/carsdy_extended.png" width="350" title="Carsdy">
 Carsdy is a web app that allows one to build flashcards for easy studying! It's currently in development so be patient :/ 
 
 ### boring details
