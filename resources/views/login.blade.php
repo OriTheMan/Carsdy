@@ -1,4 +1,7 @@
 @extends('layout')
+@push('styles')
+    <link rel="stylesheet" type="text/css" href={{ URL::asset('css/login.css') }}>
+@endpush
 @section('content')
 
     <div id="container">

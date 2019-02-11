@@ -30,4 +30,4 @@ Route::post('/register', 'Auth\RegisterController@processForm');
 Route::view('/create_set', 'create_set')->middleware('auth')->name('create_set');
 Route::post('/create_set', 'AppLogic\CardSetController@processForm');
 
-Route::get('/user/{id}/card_sets', 'AppLogic\ProfileController@showCardSets')->where(['id' => '[0-9]+']);
+Route::get('/user/{id}/card_sets', 'AppLogic\ProfileController@showCardSets')->where(['id' => '[0-9]+'])->name('show_sets');

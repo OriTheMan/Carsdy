@@ -22,10 +22,13 @@ class PRofileController extends Controller
         if($requested_id == $user_id){
             $data = DB::table('card_sets')->where('user_id', $user_id)->get();
 
-            return view('user_card_sets')->with('card_sets', $data);
+            return view('user_card_sets')->with([
+                'card_sets' => $data,
+                'username' => Auth::User()->username
+            ]);
         }else{
             $data = DB::table('card_sets')->where('user_id', $requested_id)->where('access','public')->get();
-            $username = DB::table('users')->pluck('username')->where('id',$requested_id);
+            $username = DB::table('users')->where('id', $requested_id)->value('username');
 
             return view('user_card_sets')->with([
                 'card_sets' => $data,

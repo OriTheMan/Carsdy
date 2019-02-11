@@ -1,4 +1,10 @@
 @extends('layout')
+@push('styles')
+    <link rel="stylesheet" type="text/css" href={{ URL::asset('css/create_set.css') }}>
+@endpush
+@push('scripts')
+    <script type="text/javascript" src={{ URL::asset('js/create_set.js') }}></script>
+@endpush
 @section('content')
 
 <div id="container">
