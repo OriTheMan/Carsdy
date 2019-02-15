@@ -11,19 +11,23 @@
     @foreach($card_sets as $card_set)
 
         <div class="set_container">
-            <div class="color_cont>">
+            <div class="color_cont">
                 <div class="div1"></div>
-                <div class="div2"></div>
-                <div class="div3"></div>
             </div>
-
+            
             <div class="set_contents">
                 <a class="set_title" href="/user/{{$card_set->user_id}}/set/{{$card_set->id}}">
                     {{ str_limit($card_set->title, $limit = 100, $end = '...')}}
                 </a>
 
-                <p class="set_description">{{$card_set->description}}</p>
-
+                @if($card_set->description != "")
+                 <p class="set_description">{{$card_set->description}}</p>
+                @else
+                 <p class="set_description" style="color:#710707;">
+                    <i class="fas fa-exclamation"></i>
+                    No description has been provided :/
+                @endif
+                
                 <h5 class="set_user_name">
                     By 
                     <a class="set_user_link" href="/user/{{$card_set->user_id}}/card_sets">
