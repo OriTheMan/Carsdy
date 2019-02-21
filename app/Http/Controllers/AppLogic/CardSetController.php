@@ -3,11 +3,12 @@
 namespace Carsdy\Http\Controllers\AppLogic;
 
 use Carsdy\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Carsdy\Card;
 use Carsdy\CardSet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Redirect;
 
 
 class CardSetController extends Controller
@@ -15,12 +16,19 @@ class CardSetController extends Controller
 
     public function processForm(Request $request){
         $data = $request->only('title', 'description', 'access');
+        $cards = $request->only('cards'); // Get all the card info
+
+        $setValidator = $this->setValidator($data);
+        $cardValidator = $this->cardValidator($cards);
+
+        if($setValidator->fails() || $cardValidator->fails()){
+            $errors = $setValidator->messages()->merge($cardValidator->messages());
+            return back()->withInput($request->all)->withErrors($errors);
+        }
 
         // Create card set and grab its id for use on the cards
         $cset_id = $this->createCardSet($data)->id;
 
-        // Get all the card info
-        $cards = $request->only('cards');
 
         foreach ($cards as $card){
             // Create the card
@@ -31,6 +39,16 @@ class CardSetController extends Controller
     }
 
 
+    protected function setValidator(array $data)
+    {
+        $rules =  [
+            'title' => 'required|max:50',
+            'description' => 'nullable|alpha_dash|string|max:300',
+            'access' => 'required|string',
+        ];
+
+        return Validator::make($data, $rules);
+    }
 
     /**
      * Create a new CardSet instance
@@ -47,7 +65,21 @@ class CardSetController extends Controller
             'access' => $data['access']
         ]);
     }
-    
+
+    protected function cardValidator(array $data)
+    {
+        $rules =  [
+            'cards.*.front' => 'required|alphaNum|max:100',
+            'cards.*.back' => 'required|alphaNum|max:100',
+        ];
+
+        $messages = [
+            'cards.*.front.required' => 'Front side is required.',
+            'cards.*.back.required' => 'Back side is required.'
+        ];
+
+        return Validator::make($data, $rules, $messages);
+    }
     /**
      * Create a new Card instance
      *

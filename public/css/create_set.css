@@ -80,3 +80,11 @@ button[type="submit"]{
 }
 
 .fa-share{color: #70c1b3;}
+
+.error{
+    color: #f26419;
+
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+}
