@@ -21,7 +21,9 @@
                 </a>
 
                 @if($card_set->description != "")
-                 <p class="set_description">{{$card_set->description}}</p>
+                 <p class="set_description"> 
+                    {{ str_limit($card_set->description, $limit = 50, $end = '...')}}
+                 </p>
                 @else
                  <p class="set_description" style="color:#710707;">
                     <i class="fas fa-exclamation"></i>
