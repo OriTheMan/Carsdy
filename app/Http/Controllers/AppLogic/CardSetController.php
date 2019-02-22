@@ -45,9 +45,11 @@ class CardSetController extends Controller
 
         $card_set = DB::table('card_sets')->where('user_id', $user_id)->where('id', $set_id)->get();
         $cards = DB::table('cards')->where('cset_id', $set_id)->get();
+        $username = DB::table('users')->where('id', $user_id)->value('username');
 
         return view('view_set')->with([
-            'card_set' => $card_set,
+            'username' => $username,
+            'card_set' => $card_set[0],
             'cards' => $cards
             ]);   
 

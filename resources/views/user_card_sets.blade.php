@@ -16,13 +16,13 @@
             </div>
             
             <div class="set_contents">
-                <a class="set_title" href="/user/{{$card_set->user_id}}/set/{{$card_set->id}}">
-                    {{ str_limit($card_set->title, $limit = 100, $end = '...')}}
+                <a class="set_title text_break" href="/user/{{$card_set->user_id}}/set/{{$card_set->id}}">
+                    {{ str_limit($card_set->title, $limit = 40, $end = '...')}}
                 </a>
 
                 @if($card_set->description != "")
-                 <p class="set_description"> 
-                    {{ str_limit($card_set->description, $limit = 50, $end = '...')}}
+                 <p class="set_description text_break"> 
+                    {{ str_limit($card_set->description, $limit = 45, $end = '...')}}
                  </p>
                 @else
                  <p class="set_description" style="color:#710707;">
