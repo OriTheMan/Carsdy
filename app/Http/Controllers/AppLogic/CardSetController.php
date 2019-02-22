@@ -9,6 +9,7 @@ use Carsdy\CardSet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 
 class CardSetController extends Controller
@@ -36,6 +37,20 @@ class CardSetController extends Controller
         }
 
         return redirect('/home');
+    }
+
+    public function viewSet(Request $request){
+        $user_id = $request->id;
+        $set_id = $request->set_id;
+
+        $card_set = DB::table('card_sets')->where('user_id', $user_id)->where('id', $set_id)->get();
+        $cards = DB::table('cards')->where('cset_id', $set_id)->get();
+
+        return view('view_set')->with([
+            'card_set' => $card_set,
+            'cards' => $cards
+            ]);   
+
     }
 
 

@@ -31,3 +31,5 @@ Route::view('/create_set', 'create_set')->middleware('auth')->name('create_set')
 Route::post('/create_set', 'AppLogic\CardSetController@processForm');
 
 Route::get('/user/{id}/card_sets', 'AppLogic\ProfileController@showCardSets')->where(['id' => '[0-9]+'])->name('show_sets');
+
+Route::get('/user/{id}/set/{set_id}', 'AppLogic\CardSetController@viewSet')->middleware('set.access')->name('show_set');

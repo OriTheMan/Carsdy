@@ -18,7 +18,7 @@ class PRofileController extends Controller
     public function showCardSets(Request $request, $requested_id){
         
         $user_id = Auth::user()->id;
-;
+
         if($requested_id == $user_id){
             $data = DB::table('card_sets')->where('user_id', $user_id)->get();
 
