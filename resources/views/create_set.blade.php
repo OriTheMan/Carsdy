@@ -57,11 +57,15 @@
                 </td>
             </tr>
         </table>
-        @if ($errors->has('cards.*.front'))
-            <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('cards.*.front') }}</div>
-        @endif
-        @if ($errors->has('cards.*.back'))
-            <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('cards.*.back') }}</div>
+        @if ($errors->has('cards'))
+            <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('cards') }}</div>
+        @else
+            @if ($errors->has('cards.*.front'))
+                <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('cards.*.front') }}</div>
+            @endif
+            @if ($errors->has('cards.*.back'))
+                <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('cards.*.back') }}</div>
+            @endif
         @endif
         @if ($errors->has('description'))
             <div class="error"><span class="fas fa-times error_icon"></span> {{ $errors->first('description') }}</div>

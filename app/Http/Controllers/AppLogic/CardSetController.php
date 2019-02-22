@@ -15,7 +15,7 @@ class CardSetController extends Controller
 {
 
     public function processForm(Request $request){
-        $data = $request->only('title', 'description', 'access');
+        $data = $request->only('cards', 'title', 'description', 'access');
         $cards = $request->only('cards'); // Get all the card info
 
         $setValidator = $this->setValidator($data);
@@ -42,12 +42,17 @@ class CardSetController extends Controller
     protected function setValidator(array $data)
     {
         $rules =  [
+            'cards' => 'required|array|min:1',
             'title' => 'required|max:50',
             'description' => 'nullable|alpha_dash|string|max:300',
             'access' => 'required|string',
         ];
 
-        return Validator::make($data, $rules);
+        $messages = [
+            'cards.required' => "You can't have an empty set!"
+        ];
+
+        return Validator::make($data, $rules, $messages);
     }
 
     /**
