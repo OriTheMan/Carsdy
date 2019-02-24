@@ -34,8 +34,50 @@
     height: 30em;
     margin: 3em;
 
-    background-color: rgb(177, 70, 70);
+    background-color: rgb(70, 177, 159);
     border-radius: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+
+    overflow: hidden;
+}
+
+#card_word{
+    font-family: 'Roboto', sans-serif;
+    font-size: 4em;
+    color: white;
+
+    text-align: center;
+
+    height: 80%;
+}
+
+#card_button_container{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+button:first-child{border-top-left-radius: 20px;}
+button:last-child{border-top-right-radius: 20px;}
+
+#card_button_container > button{
+    border: none;
+    background-color: #323232;
+    color: white;
+
+    font-size: 3em;
+
+    transition: color .2s ease-in-out;
+}
+
+#card_button_container > button:hover{
+    color: #a9ff82;
+
+    cursor: pointer;
 }
 
 #main_description{
@@ -57,6 +99,7 @@
 
 #main_description > h4{
     font-family: 'Lato', sans-serif;
+    font-size: 2em;
 
     margin: 0;
     padding: 1em;
@@ -104,3 +147,35 @@ td{
 }
 
 td:hover{background-color: rgb(226, 226, 226);}
+
+
+.rotate-vert-center {
+	-webkit-animation: rotate-vert-center 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	        animation: rotate-vert-center 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+/**
+ * ----------------------------------------
+ * animation rotate-vert-center
+ * ----------------------------------------
+ */
+ @-webkit-keyframes rotate-vert-center {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+    }
+    100% {
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    }
+  }
+  @keyframes rotate-vert-center {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+    }
+    100% {
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    }
+  }

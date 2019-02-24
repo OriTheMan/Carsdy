@@ -2,6 +2,9 @@
 @push('styles')
     <link rel="stylesheet" type="text/css" href={{ URL::asset('css/view_set.css') }}>
 @endpush
+@push('scripts')
+    <script type="text/javascript" src={{ URL::asset('js/view_set.js') }}></script>
+@endpush
 @section('content')
 <h1 id="set_title">
     <span style="font-weight:100;">[{{$username}}] {{$card_set->title}}</span>
@@ -10,7 +13,14 @@
 
 <div id="container">
     <div id="main_row">
-        <div id="main_card"></div>
+        <div id="main_card">
+            <h4 id="card_word">{{$cards[0]->front}}</h4>
+            <div id="card_button_container">
+                <button id="b_prev" onclick="previous()"><i class="fas fa-backward"></i></button>
+                <button id="b_change" onclick="change()"><i class="fas fa-exchange-alt"></i></button>
+                <button id="b_next" onclick="next()"><i class="fas fa-forward"></i></button>
+            </div>
+        </div>
         <div id="main_description">
             <h4>Set Description</h4>
             <p>{{$card_set->description}}
